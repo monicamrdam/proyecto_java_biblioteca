@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=ControladorPrestamos
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ControladorPrestamos\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=prestamo
+comment1.target=void\ registrar(Prestamo)
+comment2.params=
+comment2.target=java.util.ArrayList\ obtener()
+comment3.params=numeroSocio\ prestamos
+comment3.target=int\ cantidadLibrosPrestados(java.lang.String,\ java.util.ArrayList)
+comment4.params=prestamos
+comment4.target=void\ imprimirPrestamos(java.util.ArrayList)
+comment5.params=
+comment5.target=void\ solicitarDatosYCrearPrestamos()
+numComments=6
