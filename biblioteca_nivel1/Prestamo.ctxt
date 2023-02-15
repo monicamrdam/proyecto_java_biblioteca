@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Prestamo
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Prestamo\ here.\r\n\ Caracteristicas\ del\ prestamo\r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=codigoLibro\ numeroSocio\ fecha
+comment1.target=Prestamo(java.lang.String,\ java.lang.String,\ java.time.LocalDateTime)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Prestamo\r\n
+comment2.params=
+comment2.target=java.lang.String\ getCodigoLibro()
+comment3.params=codigoLibro
+comment3.target=void\ setCodigoLibro(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getNumeroSocio()
+comment5.params=numeroSocio
+comment5.target=void\ setNumeroSocio(java.lang.String)
+comment6.params=
+comment6.target=java.time.LocalDateTime\ getFecha()
+comment7.params=fecha
+comment7.target=void\ setFecha(java.time.LocalDateTime)
+comment8.params=
+comment8.target=java.lang.String\ getFechaFormateada()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10
