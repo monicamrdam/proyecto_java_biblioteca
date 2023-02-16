@@ -1,10 +1,20 @@
 #BlueJ class context
 comment0.target=ControlLibros
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ControlLibros\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=ControlLibros()
-comment2.params=b
-comment2.target=java.lang.String\ marcarComoPrestado(java.lang.String)
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ControlLibros\ here.\r\n\ Clase\ que\ controla\ la\ gestion\ de\ los\ libros\r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=libro
+comment1.target=void\ registrar(Libro)
+comment2.params=
+comment2.target=void\ solicitarDatosParaRegistrar()
 comment3.params=
-comment3.target=void\ imprimirLibrosYPedirSeleccion()
-numComments=4
+comment3.target=java.util.ArrayList\ obtener()
+comment4.params=libros
+comment4.target=void\ imprimirLibros(java.util.ArrayList)
+comment5.params=
+comment5.target=Libro\ imprimirLibrosYPedirSeleccion()
+comment6.params=codigo\ libros
+comment6.target=int\ buscarPorCodigo(java.lang.String,\ java.util.ArrayList)
+comment7.params=codigoLibro
+comment7.target=void\ marcarComoPrestado(java.lang.String)
+comment8.params=libros
+comment8.target=void\ guardarLibros(java.util.ArrayList)
+numComments=9

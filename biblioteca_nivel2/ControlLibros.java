@@ -46,7 +46,7 @@ public class ControlLibros
         String localizacion = sc.nextLine();
         System.out.println("Ingrese la signatura del libro:");
         String signatura = sc.nextLine();
-        ControlLibros.registrar(new Libro(codigo, titulo, autor,disponible, signatura, localizacion));
+        ControlLibros.registrar(new Libro(codigo, titulo, autor,localizacion,signatura,disponible));
         System.out.println("Libro registrado correctamente");
     }
     public static ArrayList<Libro> obtener() {
@@ -59,8 +59,7 @@ public class ControlLibros
             String linea;
             while ((linea = bufR.readLine()) != null) {
                 String[] arrayLibro = linea.split(SEPARADOR_CAMPO);
-                libros.add(new Libro(arrayLibro[0], arrayLibro[1], arrayLibro[2], Boolean.valueOf(arrayLibro[3]),arrayLibro[4],
-                        arrayLibro[5]));
+                libros.add(new Libro(arrayLibro[0], arrayLibro[1], arrayLibro[2], arrayLibro[4],arrayLibro[5], Boolean.valueOf(arrayLibro[3])));
             }
         } catch (IOException e) {
             System.out.println("Excepción leyendo archivo: " + e.getMessage());
