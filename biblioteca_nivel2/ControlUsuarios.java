@@ -14,20 +14,10 @@ import java.io.FileReader;
  */
 public class ControlUsuarios
 {
-    private static final String NOMBRE_ARCHIVO = "socios.txt";
+      private static final String NOMBRE_ARCHIVO = "socios.txt";
     private static final String SEPARADOR_CAMPO = ";";
     private static final String SEPARADOR_REGISTRO = "\n";
-    
-     public static void registrar(Usuarios socio) {
-        try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO, true));
-            bufferedWriter.write(socio.getNumero() + SEPARADOR_CAMPO + socio.getNombre() + SEPARADOR_CAMPO
-                    + socio.getDireccion() + SEPARADOR_REGISTRO);
-            bufferedWriter.close();
-        } catch (IOException e) {
-            System.out.println("Error escribiendo en archivo: " + e.getMessage());
-        }
-    }
+
     public static void solicitarDatosParaRegistrar() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese numero de socio: ");
@@ -39,7 +29,19 @@ public class ControlUsuarios
         ControlUsuarios.registrar(new Usuarios(numero, nombre, direccion));
         System.out.println("Registrado exitosamente");
     }
-     public static ArrayList<Usuarios> obtener() {
+
+    public static void registrar(Usuarios socio) {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO, true));
+            bufferedWriter.write(socio.getNumero() + SEPARADOR_CAMPO + socio.getNombre() + SEPARADOR_CAMPO
+                    + socio.getDireccion() + SEPARADOR_REGISTRO);
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Error escribiendo en archivo: " + e.getMessage());
+        }
+    }
+
+    public static ArrayList<Usuarios> obtener() {
         ArrayList<Usuarios> socios = new ArrayList<>();
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
@@ -67,6 +69,7 @@ public class ControlUsuarios
             return socios;
         }
     }
+
     public static void imprimirSocios(ArrayList<Usuarios> socios) {
         ArrayList<Prestamo> prestamos = ControlPrestamos.obtener();
         System.out.println(
@@ -83,18 +86,40 @@ public class ControlUsuarios
                     "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
         }
     }
-    public static int buscarSocioPorNumero(String numero, ArrayList<Socio> socios) {
+
+    public static void imprimirSociosNoFiables(ArrayList<Usuarios> socios) {
+        ArrayList<Prestamo> prestamos = ControlPrestamos.obtener();
+        System.out.println(
+                "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
+        System.out.printf("|%-5s|%-10s|%-40s|%-40s|%-20s|\n", "#", "No. socio", "Nombre", "Direccion",
+                "Libros prestados");
+        System.out.println(
+                "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
         for (int x = 0; x < socios.size(); x++) {
-            Socio socio = socios.get(x);
+            Usuarios socio = socios.get(x);
+            int librosPrestados = ControlPrestamos.cantidadLibrosPrestados(socio.getNumero(), prestamos);
+            if (librosPrestados < 10) {
+                continue;
+            }
+            System.out.printf("|%-5s|%-10s|%-40s|%-40s|%-20s|\n", x + 1, socio.getNumero(), socio.getNombre(),
+                    socio.getDireccion(), librosPrestados);
+            System.out.println(
+                    "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
+        }
+    }
+
+    public static int buscarSocioPorNumero(String numero, ArrayList<Usuarios> socios) {
+        for (int x = 0; x < socios.size(); x++) {
+            Usuarios socio = socios.get(x);
             if (socio.getNumero().equals(numero)) {
                 return x;
             }
         }
         return -1;
-        
     }
-      public static Socio imprimirSociosYPedirSeleccion() {
-        ArrayList<Usuarios> socios = ControladorSocios.obtener();
+
+    public static Usuarios imprimirSociosYPedirSeleccion() {
+        ArrayList<Usuarios> socios = ControlUsuarios.obtener();
         Scanner sc = new Scanner(System.in);
         while (true) {
             ControlUsuarios.imprimirSocios(socios);
@@ -108,5 +133,4 @@ public class ControlUsuarios
             }
         }
     }
-}  
 }
