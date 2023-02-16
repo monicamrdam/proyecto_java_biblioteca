@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ControlLibros
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ControlLibros\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ControlLibros()
+comment2.params=b
+comment2.target=java.lang.String\ marcarComoPrestado(java.lang.String)
+comment3.params=
+comment3.target=void\ imprimirLibrosYPedirSeleccion()
+numComments=4
