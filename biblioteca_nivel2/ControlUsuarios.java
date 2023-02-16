@@ -14,27 +14,27 @@ import java.io.FileReader;
  */
 public class ControlUsuarios
 {
-      private static final String NOMBRE_ARCHIVO = "socios.txt";
+    private static final String NOMBRE_ARCHIVO = "usuarios.txt";
     private static final String SEPARADOR_CAMPO = ";";
     private static final String SEPARADOR_REGISTRO = "\n";
 
     public static void solicitarDatosParaRegistrar() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese numero de socio: ");
+        System.out.println("Ingrese numero de usuario: ");
         String numero = sc.nextLine();
-        System.out.println("Ingrese nombre de socio: ");
+        System.out.println("Ingrese nombre de usuario: ");
         String nombre = sc.nextLine();
-        System.out.println("Ingrese direccion de socio: ");
+        System.out.println("Ingrese direccion de usuario: ");
         String direccion = sc.nextLine();
         ControlUsuarios.registrar(new Usuarios(numero, nombre, direccion));
         System.out.println("Registrado exitosamente");
     }
 
-    public static void registrar(Usuarios socio) {
+    public static void registrar(Usuarios usuario) {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO, true));
-            bufferedWriter.write(socio.getNumero() + SEPARADOR_CAMPO + socio.getNombre() + SEPARADOR_CAMPO
-                    + socio.getDireccion() + SEPARADOR_REGISTRO);
+            bufferedWriter.write(usuario.getNumero() + SEPARADOR_CAMPO + usuario.getNombre() + SEPARADOR_CAMPO
+                    + usuario.getDireccion() + SEPARADOR_REGISTRO);
             bufferedWriter.close();
         } catch (IOException e) {
             System.out.println("Error escribiendo en archivo: " + e.getMessage());
@@ -42,7 +42,7 @@ public class ControlUsuarios
     }
 
     public static ArrayList<Usuarios> obtener() {
-        ArrayList<Usuarios> socios = new ArrayList<>();
+        ArrayList<Usuarios> usuarios = new ArrayList<>();
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         try {
@@ -50,8 +50,8 @@ public class ControlUsuarios
             bufferedReader = new BufferedReader(fileReader);
             String linea;
             while ((linea = bufferedReader.readLine()) != null) {
-                String[] socioComoArreglo = linea.split(SEPARADOR_CAMPO);
-                socios.add(new Usuarios(socioComoArreglo[0], socioComoArreglo[1], socioComoArreglo[2]));
+                String[] arrayUsuario = linea.split(SEPARADOR_CAMPO);
+                usuarios.add(new Usuarios(arrayUsuario[0], arrayUsuario[1], arrayUsuario[2]));
             }
         } catch (IOException e) {
             System.out.println("Excepción leyendo archivo: " + e.getMessage());
@@ -66,11 +66,11 @@ public class ControlUsuarios
             } catch (IOException e) {
                 System.out.println("Excepción cerrando: " + e.getMessage());
             }
-            return socios;
+            return usuarios;
         }
     }
 
-    public static void imprimirSocios(ArrayList<Usuarios> socios) {
+    public static void imprimirUsuarios(ArrayList<Usuarios> usuarios) {
         ArrayList<Prestamo> prestamos = ControlPrestamos.obtener();
         System.out.println(
                 "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
@@ -78,58 +78,37 @@ public class ControlUsuarios
                 "Libros prestados");
         System.out.println(
                 "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
-        for (int x = 0; x < socios.size(); x++) {
-            Usuarios socio = socios.get(x);
-            System.out.printf("|%-5s|%-10s|%-40s|%-40s|%-20s|\n", x + 1, socio.getNumero(), socio.getNombre(),
-                    socio.getDireccion(), ControlPrestamos.cantidadLibrosPrestados(socio.getNumero(), prestamos));
+        for (int x = 0; x < usuarios.size(); x++) {
+            Usuarios usuario = usuarios.get(x);
+            System.out.printf("|%-5s|%-10s|%-40s|%-40s|%-20s|\n", x + 1, usuario.getNumero(), usuario.getNombre(),
+                    usuario.getDireccion(), ControlPrestamos.cantidadLibrosPrestados(usuario.getNumero(), prestamos));
             System.out.println(
                     "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
         }
     }
 
-    public static void imprimirSociosNoFiables(ArrayList<Usuarios> socios) {
-        ArrayList<Prestamo> prestamos = ControlPrestamos.obtener();
-        System.out.println(
-                "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
-        System.out.printf("|%-5s|%-10s|%-40s|%-40s|%-20s|\n", "#", "No. socio", "Nombre", "Direccion",
-                "Libros prestados");
-        System.out.println(
-                "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
-        for (int x = 0; x < socios.size(); x++) {
-            Usuarios socio = socios.get(x);
-            int librosPrestados = ControlPrestamos.cantidadLibrosPrestados(socio.getNumero(), prestamos);
-            if (librosPrestados < 10) {
-                continue;
-            }
-            System.out.printf("|%-5s|%-10s|%-40s|%-40s|%-20s|\n", x + 1, socio.getNumero(), socio.getNombre(),
-                    socio.getDireccion(), librosPrestados);
-            System.out.println(
-                    "+-----+----------+----------------------------------------+----------------------------------------+--------------------+");
-        }
-    }
-
-    public static int buscarSocioPorNumero(String numero, ArrayList<Usuarios> socios) {
-        for (int x = 0; x < socios.size(); x++) {
-            Usuarios socio = socios.get(x);
-            if (socio.getNumero().equals(numero)) {
+    public static int buscarUsuarioPorNumero(String numero, ArrayList<Usuarios> usuarios) {
+        for (int x = 0; x < usuarios.size(); x++) {
+            Usuarios usuario = usuarios.get(x);
+            if (usuario.getNumero().equals(numero)) {
                 return x;
             }
         }
         return -1;
     }
 
-    public static Usuarios imprimirSociosYPedirSeleccion() {
-        ArrayList<Usuarios> socios = ControlUsuarios.obtener();
+    public static Usuarios imprimirUsuariosYPedirSeleccion() {
+        ArrayList<Usuarios> usuarios = ControlUsuarios.obtener();
         Scanner sc = new Scanner(System.in);
         while (true) {
-            ControlUsuarios.imprimirSocios(socios);
+            ControlUsuarios.imprimirUsuarios(usuarios);
             System.out.println("Ingrese el numero de socio: ");
             String numero = sc.nextLine();
-            int indice = ControlUsuarios.buscarSocioPorNumero(numero, socios);
+            int indice = ControlUsuarios.buscarUsuarioPorNumero(numero, usuarios);
             if (indice == -1) {
                 System.out.println("No existe socio con ese numero");
             } else {
-                return socios.get(indice);
+                return usuarios.get(indice);
             }
         }
     }
