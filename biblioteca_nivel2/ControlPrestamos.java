@@ -82,5 +82,15 @@ public class ControlPrestamos
                     "+-----+------------------------------+------------------------------+--------------------+");
         }
     }
+     public static int cantidadLibrosPrestados(String numeroSocio, ArrayList<Prestamo> prestamos) {
+        int cantidad = 0;
+        for (int x = 0; x < prestamos.size(); x++) {
+            Prestamo prestamo = prestamos.get(x);
+            if (prestamo.getNumeroSocio().equals(numeroSocio)) {
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
     
 }
