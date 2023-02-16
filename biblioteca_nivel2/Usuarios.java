@@ -36,6 +36,6 @@ public class Usuarios
 
     @Override
     public String toString() {
-        return "Socio{" + "numero=" + numero + ", nombre=" + nombre + ", direccion=" + direccion + '}';
+        return "Usuario{" + "numero=" + numero + ", nombre=" + nombre + ", direccion=" + direccion + '}';
     }
 }
