@@ -10,12 +10,12 @@ import java.time.format.*;
 public class Prestamo
 {
     private String codigoLibro;
-    private String numeroSocio;
+    private String numeroUsuario;
     private LocalDateTime fechaFormateada;
     
-    public Prestamo(String codigoLibro, String numeroSocio, LocalDateTime fechaFormateada ) {
+    public Prestamo(String codigoLibro, String numeroUsuario, LocalDateTime fechaFormateada ) {
         this.codigoLibro = codigoLibro;
-        this.numeroSocio = numeroSocio;
+        this.numeroUsuario = numeroUsuario;
         this.fechaFormateada = fechaFormateada;
   
     }
@@ -24,8 +24,8 @@ public class Prestamo
         return codigoLibro;
     }
     
-     public String getNumeroSocio() {
-        return numeroSocio;
+     public String getNumeroUsuario() {
+        return numeroUsuario;
     }
     
     public LocalDateTime getFecha() {
@@ -34,8 +34,8 @@ public class Prestamo
     public void setCodigoLibro(String codigoLibro) {
         this.codigoLibro = codigoLibro;
     }
-     public void setNumeroSocio(String numeroSocio) {
-        this.numeroSocio = numeroSocio;
+     public void setNumeroUsuario(String numeroUsuario) {
+        this.numeroUsuario = numeroUsuario;
     }
     public void setFecha(LocalDateTime fecha) {
         this.fechaFormateada = fechaFormateada;
@@ -47,7 +47,7 @@ public class Prestamo
     }
     @Override
     public String toString() {
-        return "Prestamo{" + "codigoLibro=" + codigoLibro + ", numeroSocio=" + numeroSocio + ", fecha="
+        return "Prestamo{" + "codigoLibro=" + codigoLibro + ", numeroUsuario=" + numeroUsuario + ", fecha="
                 + this.getFechaFormateada() + '}';
     }
 }
