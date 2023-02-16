@@ -7,46 +7,35 @@
  */
 public class Usuarios
 {
-    private int id;
-    private String usuario;
-    private String contraseña;
+    private String numero;
     private String nombre;
-    private String email;
-    public Usuarios(int id, String usuario, String contraseña, String nombre, String email){
-        this.id=id;
-        this.usuario=usuario;
-        this.contraseña=contraseña;
+    private String direccion;
+    public Usuarios(String numero, String nombre, String direccion){
+        this.numero=numero;
         this.nombre=nombre;
-        this.email=email;
+        this.direccion=direccion;
     }
-    public int getId(){
-        return id;
+     public String getNumero() {
+        return numero;
     }
-    public void setId(int id){
-        this.id=id;
-    }
-     public String getUsuario(){
-        return usuario;
-    }
-    public void setUsuario(String usuario){
-        this.usuario=usuario;
-    }
-     public String getContraseña(){
-        return contraseña;
-    }
-    public void setContraseña(String contraseña){
-        this.contraseña=contraseña;
-    }
-     public String getNombre(){
+     public String getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public String getDireccion() {
+        return direccion;
     }
-     public String getEmail(){
-        return email;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
-    public void setString(String email){
-        this.email=email;
+     public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+     public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Socio{" + "numero=" + numero + ", nombre=" + nombre + ", direccion=" + direccion + '}';
     }
 }
