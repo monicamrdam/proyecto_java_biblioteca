@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Usuarios
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Usuarios\ here.\r\n\ Clase\ usuarios\r\n\ @author\ (monicamrdam)\ \r\n\ @version\ (16/02/2023)\r\n
+comment1.params=id\ usuario\ contrase\u00F1a\ nombre\ email
+comment1.target=Usuarios(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment10.params=
+comment10.target=java.lang.String\ getEmail()
+comment11.params=email
+comment11.target=void\ setString(java.lang.String)
+comment2.params=
+comment2.target=int\ getId()
+comment3.params=id
+comment3.target=void\ setId(int)
+comment4.params=
+comment4.target=java.lang.String\ getUsuario()
+comment5.params=usuario
+comment5.target=void\ setUsuario(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getContrase\u00F1a()
+comment7.params=contrase\u00F1a
+comment7.target=void\ setContrase\u00F1a(java.lang.String)
+comment8.params=
+comment8.target=java.lang.String\ getNombre()
+comment9.params=nombre
+comment9.target=void\ setNombre(java.lang.String)
+numComments=12
