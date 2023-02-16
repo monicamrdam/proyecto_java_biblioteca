@@ -10,6 +10,6 @@ comment3.params=
 comment3.target=void\ solicitarDatosYCrearPrestamo()
 comment4.params=prestamos
 comment4.target=void\ imprimirPrestamos(java.util.ArrayList)
-comment5.params=numeroSocio\ prestamos
+comment5.params=numeroUsuario\ prestamos
 comment5.target=int\ cantidadLibrosPrestados(java.lang.String,\ java.util.ArrayList)
 numComments=6

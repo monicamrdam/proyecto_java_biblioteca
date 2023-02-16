@@ -27,7 +27,7 @@ public class ControlPrestamos
        ControlLibros.marcarComoPrestado(prestamo.getCodigoLibro());
        try {
             BufferedWriter bufW = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO, true));
-            bufW.write(prestamo.getCodigoLibro() + SEPARADOR_CAMPO + prestamo.getNumeroSocio() + SEPARADOR_CAMPO + prestamo.getFechaFormateada() + SEPARADOR_REGISTRO);
+            bufW.write(prestamo.getCodigoLibro() + SEPARADOR_CAMPO + prestamo.getNumeroUsuario() + SEPARADOR_CAMPO + prestamo.getFechaFormateada() + SEPARADOR_REGISTRO);
             bufW.close();
         }catch (IOException e) {
             System.out.println("Error al registrar el prestamo: " + e.getMessage());
@@ -63,7 +63,7 @@ public class ControlPrestamos
    }
     public static void solicitarDatosYCrearPrestamo() {
         Libro libro = ControlLibros.imprimirLibrosYPedirSeleccion();
-        Usuarios usuario = ControlUsuarios.imprimirSociosYPedirSeleccion();
+        Usuarios usuario = ControlUsuarios.imprimirUsuariosYPedirSeleccion();
         ControlPrestamos.registrar(new Prestamo(libro.getCodigo(), usuario.getNumero(), LocalDateTime.now()));
         System.out.println("Prestamo registrado correctamente");
     }
@@ -76,17 +76,17 @@ public class ControlPrestamos
 
         for (int x = 0; x < prestamos.size(); x++) {
             Prestamo prestamo = prestamos.get(x);
-            System.out.printf("|%-5d|%-30s|%-30s|%-20s|\n", x, prestamo.getCodigoLibro(), prestamo.getNumeroSocio(),
+            System.out.printf("|%-5d|%-30s|%-30s|%-20s|\n", x, prestamo.getCodigoLibro(), prestamo.getNumeroUsuario(),
                     prestamo.getFechaFormateada());
             System.out.println(
                     "+-----+------------------------------+------------------------------+--------------------+");
         }
     }
-     public static int cantidadLibrosPrestados(String numeroSocio, ArrayList<Prestamo> prestamos) {
+     public static int cantidadLibrosPrestados(String numeroUsuario, ArrayList<Prestamo> prestamos) {
         int cantidad = 0;
         for (int x = 0; x < prestamos.size(); x++) {
             Prestamo prestamo = prestamos.get(x);
-            if (prestamo.getNumeroSocio().equals(numeroSocio)) {
+            if (prestamo.getNumeroUsuario().equals(numeroUsuario)) {
                 cantidad++;
             }
         }
