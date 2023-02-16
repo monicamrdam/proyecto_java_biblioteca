@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ControlUsuarios
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ControlUsuarios\ here.\r\n\ Clase\ controlar\ los\ usuarios\r\n\ @author\ (monicamrmda)\ \r\n\ @version\ (16/02/2023)\r\n
+comment1.params=usuario
+comment1.target=boolean\ registrar(Usuarios)
+comment2.params=usuario
+comment2.target=boolean\ actualizar(Usuarios)
+comment3.params=usuarios
+comment3.target=java.util.ArrayList\ Usuarios(java.lang.String)
+comment4.params=
+comment4.target=boolean\ eliminar()
+numComments=5
