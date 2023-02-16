@@ -18,9 +18,11 @@ public class Biblioteca
             switch(opcion){
             case "1":
                 System.out.println("Has seleccionado registrar socio");
+                ControlUsuarios.solicitarDatosParaRegistrar();
                 break;
             case "2":
                 System.out.println("Has seleccionado ver socio");
+                ControlUsuarios.imprimirSocios(ControlUsuarios.obtener());
                 break;
             case "3":
                 System.out.println("Has seleccionado registrar libro");
