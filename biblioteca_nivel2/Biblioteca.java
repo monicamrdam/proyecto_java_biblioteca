@@ -13,16 +13,16 @@ public class Biblioteca
         String opcion="";
        
         do{
-            System.out.println("1. Registrar socio\n2. Ver socio\n3. Registrar libro\n4. Ver libro\n5. Registrar prestamo\n6. Ver prestamos\n0. Salir\nElige:");
+            System.out.println("1. Registrar usuario\n2. Ver usuario\n3. Registrar libro\n4. Ver libro\n5. Registrar prestamo\n6. Ver prestamos\n0. Salir\nElige:");
             opcion=sc.nextLine();
             switch(opcion){
             case "1":
-                System.out.println("Has seleccionado registrar socio");
+                System.out.println("Has seleccionado registrar usuario");
                 ControlUsuarios.solicitarDatosParaRegistrar();
                 break;
             case "2":
-                System.out.println("Has seleccionado ver socio");
-                ControlUsuarios.imprimirSocios(ControlUsuarios.obtener());
+                System.out.println("Has seleccionado ver usuarios");
+                ControlUsuarios.imprimirUsuarios(ControlUsuarios.obtener());
                 break;
             case "3":
                 System.out.println("Has seleccionado registrar libro");
