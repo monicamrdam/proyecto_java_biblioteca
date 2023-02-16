@@ -24,9 +24,11 @@ public class Biblioteca
                 break;
             case "3":
                 System.out.println("Has seleccionado registrar libro");
+                ControlLibros.solicitarDatosParaRegistrar();
                 break;
             case "4":
-                System.out.println("Has seleccionado ver libro");
+                System.out.println("Has seleccionado ver libros");
+                ControlLibros.imprimirLibros(ControlLibros.obtener());
                 break;
             case "5":
                 System.out.println("Has seleccionado registrar prestamo");
